@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -132,7 +133,7 @@ public class MainActivity extends AbsRuntimePermission {
         protected Boolean doInBackground(Void... params) {
             boolean bandera = false;
             HttpURLConnection connection = null;
-            BufferedReader reader;
+            BufferedReader reader  = null;
             try {
                 URL url;
                 if (numComic==-1){
@@ -166,6 +167,13 @@ public class MainActivity extends AbsRuntimePermission {
             } finally {
                 if (connection != null) {
                     connection.disconnect();
+                }
+                try {
+                    if (reader != null) {
+                        reader.close();
+                    }
+                } catch (IOException e) {
+
                 }
             }
             return bandera;
