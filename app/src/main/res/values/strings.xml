@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">XKCD COMIC</string>
+
+    <string name="msg">Por favor acepte los permisos para el buen funcionamiento de la aplicación.</string>
+
+    <string name="url">https://xkcd.com</string>
+</resources>
